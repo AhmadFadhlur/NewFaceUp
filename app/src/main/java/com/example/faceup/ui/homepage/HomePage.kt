@@ -43,9 +43,9 @@ class HomePage : Fragment() {
         val nama = navArgs.name.toString()
         binding.tvName.text = nama
         onBackPressed()
-        setBottomNav()
         moveToDetail()
         setRvProduct()
+        futureWork()
 
     }
 
@@ -71,6 +71,15 @@ class HomePage : Fragment() {
         binding.rvArticle.adapter = adapter
     }
 
+    private fun futureWork(){
+        binding.cvKlinik.setOnClickListener() {
+            findNavController().navigate(R.id.action_homePage_to_klinikFragment)
+        }
+        binding.cvKonsul.setOnClickListener(){
+            findNavController().navigate(R.id.action_homePage_to_konsulFragment)
+        }
+    }
+
     private fun customDialog(){
         val dialog = Dialog(requireContext())
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -91,13 +100,6 @@ class HomePage : Fragment() {
         }
     }
 
-
-    private fun setBottomNav(){
-        val botAppbar = activity?.findViewById<BottomAppBar>(R.id.bottomAppBar)
-        botAppbar?.visibility = View.VISIBLE
-        val floatButton = activity?.findViewById<FloatingActionButton>(R.id.fab_buttonCamera)
-        floatButton?.visibility = View.INVISIBLE
-    }
     private fun onBackPressed() {
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {

@@ -37,7 +37,6 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setBottomNav()
         setRvProduct()
         logout()
     }
@@ -76,13 +75,5 @@ class ProfileFragment : Fragment() {
         val adapter= ProductAdapter(list)
         binding.rvHistory.adapter = adapter
     }
-
-    private fun setBottomNav(){
-        val botAppbar = activity?.findViewById<BottomAppBar>(R.id.bottomAppBar)
-        botAppbar?.visibility = View.INVISIBLE
-        val floatButton = activity?.findViewById<FloatingActionButton>(R.id.fab_buttonCamera)
-        floatButton?.visibility = View.INVISIBLE
-    }
-
 
 }
