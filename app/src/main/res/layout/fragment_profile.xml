@@ -48,7 +48,7 @@
         android:text="nama"
         android:textColor="@color/black"
         android:textSize="28sp"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/tv_email"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -61,7 +61,7 @@
         android:text="email"
         android:textSize="28sp"
         app:layout_constraintStart_toEndOf="@+id/image"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_namaUser" />
 
     <TextView
         android:id="@+id/tv_Loguut"
