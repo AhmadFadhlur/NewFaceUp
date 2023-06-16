@@ -83,7 +83,7 @@ class LoginFragment : Fragment() {
             playSequentially(login,loginDescription, emailText, emailEd, passText,passEd, btnLogin, dontHvAkunText, regisText)
             start()
         }
-        setBottomNav()
+//        setBottomNav()
     }
     private fun passwordValidation(){
         binding.tiPassword.doOnTextChanged { text, start, before, count ->
@@ -164,12 +164,12 @@ class LoginFragment : Fragment() {
         }
     }
 
-    private fun setBottomNav(){
-        val botAppbar = activity?.findViewById<BottomAppBar>(R.id.bottomAppBar)
-        botAppbar?.visibility = View.GONE
-        val floatButton = activity?.findViewById<FloatingActionButton>(R.id.fab_buttonCamera)
-        floatButton?.visibility = View.GONE
-    }
+//    private fun setBottomNav(){
+//        val botAppbar = activity?.findViewById<BottomAppBar>(R.id.bottomAppBar)
+//        botAppbar?.visibility = View.GONE
+//        val floatButton = activity?.findViewById<FloatingActionButton>(R.id.fab_buttonCamera)
+//        floatButton?.visibility = View.GONE
+//    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

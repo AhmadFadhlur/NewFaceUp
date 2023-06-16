@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.faceup.R
 import com.example.faceup.utils.Product
 
-class ProductAdapter(private val listHero: ArrayList<Product>) : RecyclerView.Adapter<ProductAdapter.ListViewHolder>() {
+class ProductAdapter(private val listproduct: ArrayList<Product>) : RecyclerView.Adapter<ProductAdapter.ListViewHolder>() {
 
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -24,12 +24,12 @@ class ProductAdapter(private val listHero: ArrayList<Product>) : RecyclerView.Ad
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val (name, description, photo) = listHero[position]
+        val (name, description, photo) = listproduct[position]
         holder.imgPhoto.setImageResource(photo)
         holder.tvName.text = name
         holder.tvDescription.text = description
 
     }
 
-    override fun getItemCount(): Int = listHero.size
+    override fun getItemCount(): Int = listproduct.size
 }

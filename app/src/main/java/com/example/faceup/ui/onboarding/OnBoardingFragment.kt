@@ -31,12 +31,12 @@ class OnBoardingFragment : Fragment() {
         binding.btnOnBoarding.setOnClickListener {
             it.findNavController().navigate(R.id.action_onBoardingFragment_to_loginFragment)
         }
-        setBottomNav()
+//        setBottomNav()
     }
-    private fun setBottomNav(){
-        val botAppbar = activity?.findViewById<BottomAppBar>(R.id.bottomAppBar)
-        botAppbar?.visibility = View.GONE
-        val floatButton = activity?.findViewById<FloatingActionButton>(R.id.fab_buttonCamera)
-        floatButton?.visibility = View.GONE
-    }
+//    private fun setBottomNav(){
+//        val botAppbar = activity?.findViewById<BottomAppBar>(R.id.bottomAppBar)
+//        botAppbar?.visibility = View.GONE
+//        val floatButton = activity?.findViewById<FloatingActionButton>(R.id.fab_buttonCamera)
+//        floatButton?.visibility = View.GONE
+//    }
 }

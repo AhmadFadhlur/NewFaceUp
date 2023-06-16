@@ -62,7 +62,7 @@ class RegisterFragment : Fragment() {
             playSequentially(register,registerDescription, tvnama,ednama, emailText, emailEd, passText,passEd, btnLogin)
             start()
         }
-        setBottomNav()
+//        setBottomNav()
     }
 
     private fun observeDataRegister (){
@@ -103,10 +103,10 @@ class RegisterFragment : Fragment() {
         }
     }
 
-    private fun setBottomNav(){
-        val botAppbar = activity?.findViewById<BottomAppBar>(R.id.bottomAppBar)
-        botAppbar?.visibility = View.GONE
-        val floatButton = activity?.findViewById<FloatingActionButton>(R.id.fab_buttonCamera)
-        floatButton?.visibility = View.GONE
-    }
+//    private fun setBottomNav(){
+//        val botAppbar = activity?.findViewById<BottomAppBar>(R.id.bottomAppBar)
+//        botAppbar?.visibility = View.GONE
+//        val floatButton = activity?.findViewById<FloatingActionButton>(R.id.fab_buttonCamera)
+//        floatButton?.visibility = View.GONE
+//    }
 }

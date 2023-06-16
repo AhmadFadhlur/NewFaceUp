@@ -60,8 +60,6 @@
     <string name="pen_papule_4">Isotretinoin is made from vitamin A</string>
 
 
-
-
     <!--desc penanganan pustules jerawat -->
     <string name="pen_pustules_1">Benzoyl Peroxide kills bacteria, unclogs pores.</string>
     <string name="pen_pustules_2">Salicylic Acid helps clear away dead skin cells.</string>
@@ -77,6 +75,8 @@
 
 
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non lectus porta, gravida nisl et, consectetur ipsum. Ut hendrerit lacus ex, varius tristique massa posuere ullamcorper. Aenean in rhoncus tortor. Sed ullamcorper, magna non molestie dictum, turpis erat commodo lectus, eget dapibus augue mauris euismod nunc.</string>
+    <string name="aplikasi_dalam_tahap_pengembangan">Aplikasi Dalam Tahap Pengembangan</string>
+    <string name="tittle">Tittle</string>
 
 
 </resources>
