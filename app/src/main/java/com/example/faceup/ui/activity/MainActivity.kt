@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        setCamera()
     }
 
     private fun hideBottomNav(hide: Boolean) {
@@ -58,44 +57,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setCamera(){
-//        binding.fabButtonCamera.setOnClickListener {
-//
-//            MaterialAlertDialogBuilder(this)
-//                .setTitle("Warning")
-//                .setMessage("Please Take Close Picture")
-//                .setNeutralButton("Cancel") { dialog, which ->
-//                    // Respond to neutral button press
-//                }
-//                .setNegativeButton("decline") { dialog, which ->
-//                    // Respond to negative button press
-//                }
-//                .setPositiveButton("Accept") { dialog, which ->
-//                    Toast.makeText(this, "Fragment", Toast.LENGTH_LONG).show()
-////                    val fragmentManager = supportFragmentManager
-////                    val fragment = DetailFragment() // Ganti dengan Fragment yang ingin ditampilkan
-////                    val fragmentTransaction = fragmentManager.beginTransaction()
-////                    fragmentTransaction.replace(R.id.fragmentContainer, fragment) // Ganti R.id.fragmentContainer dengan ID kontainer di layout tempat Fragment akan ditempatkan
-////                    fragmentTransaction.commit()
-////                findNavController().navigate(R.id.detailFragment2)
-//                }
-//                .show()
-//        }
-
-    }
-
-    private fun customDialog(){
-        val dialog = Dialog(this)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.setContentView(R.layout.custom_dialog)
-
-        val btnOk = dialog.findViewById<Button>(R.id.buttonOke)
-        btnOk.setOnClickListener{
-            dialog.dismiss()
-        }
-        dialog.show()
-    }
 
 
 }
