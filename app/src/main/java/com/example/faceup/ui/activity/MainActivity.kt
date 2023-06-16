@@ -5,7 +5,6 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.view.Window
 import android.widget.Button
 import android.widget.Toast
@@ -27,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        val navView: BottomNavigationView = findViewById(R.id.botNavView)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragContainerView) as NavHostFragment
         val navController = navHostFragment.navController
         val appBarConfiguration = AppBarConfiguration.Builder(
@@ -37,50 +36,16 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            when (destination.id) {
-                R.id.registerFragment -> hideBottomNav(true)
-                R.id.onBoardingFragment -> hideBottomNav(true)
-                R.id.loginFragment -> hideBottomNav(true)
-                R.id.splashScreenFragment -> hideBottomNav(true)
-                else -> hideBottomNav(false)
-            }
-        }
 
+        binding.botNavView.background = null
         setCamera()
     }
 
-    private fun hideBottomNav(hide: Boolean) {
-        if (hide) {
-            binding.navView.visibility = View.GONE
-        } else {
-            binding.navView.visibility = View.VISIBLE
-        }
-    }
-
     private fun setCamera(){
-//        binding.fabButtonCamera.setOnClickListener {
-//
-//            MaterialAlertDialogBuilder(this)
-//                .setTitle("Warning")
-//                .setMessage("Please Take Close Picture")
-//                .setNeutralButton("Cancel") { dialog, which ->
-//                    // Respond to neutral button press
-//                }
-//                .setNegativeButton("decline") { dialog, which ->
-//                    // Respond to negative button press
-//                }
-//                .setPositiveButton("Accept") { dialog, which ->
-//                    Toast.makeText(this, "Fragment", Toast.LENGTH_LONG).show()
-////                    val fragmentManager = supportFragmentManager
-////                    val fragment = DetailFragment() // Ganti dengan Fragment yang ingin ditampilkan
-////                    val fragmentTransaction = fragmentManager.beginTransaction()
-////                    fragmentTransaction.replace(R.id.fragmentContainer, fragment) // Ganti R.id.fragmentContainer dengan ID kontainer di layout tempat Fragment akan ditempatkan
-////                    fragmentTransaction.commit()
-////                findNavController().navigate(R.id.detailFragment2)
-//                }
-//                .show()
-//        }
+
+        binding.fabButtonCamera.setOnClickListener{
+            customDialog()
+        }
 
     }
 

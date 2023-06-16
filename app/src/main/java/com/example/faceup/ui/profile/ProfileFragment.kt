@@ -56,12 +56,12 @@ class ProfileFragment : Fragment() {
         binding.rvHistory.adapter = adapter
     }
 
-
-
     private fun setBottomNav(){
         val botAppbar = activity?.findViewById<BottomAppBar>(R.id.bottomAppBar)
-        botAppbar?.visibility = View.VISIBLE
+        botAppbar?.visibility = View.INVISIBLE
         val floatButton = activity?.findViewById<FloatingActionButton>(R.id.fab_buttonCamera)
         floatButton?.visibility = View.INVISIBLE
     }
+
+
 }

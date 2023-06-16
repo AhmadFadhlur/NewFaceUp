@@ -10,9 +10,12 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.faceup.R
 import com.example.faceup.databinding.FragmentHomePageBinding
+import com.example.faceup.ui.bottomsheet.product.adapter.ProductAdapter
 import com.example.faceup.ui.profile.ProfileFragment
+import com.example.faceup.utils.Product
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -24,6 +27,7 @@ class HomePage : Fragment() {
     private var _binding : FragmentHomePageBinding? = null
     private val binding get() = _binding!!
     private val navArgs : HomePageArgs by navArgs()
+    private val list = ArrayList<Product>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,6 +43,29 @@ class HomePage : Fragment() {
         setBottomNav()
         moveToDetail ()
 
+    }
+
+
+    private fun getProductItem() : ArrayList<Product>{
+        val namaProduct = "Acne"
+        val description = "this type acne commonly happend to of us because cannon event"
+        val gambar = R.drawable.crew
+        val listProduct = ArrayList<Product>()
+
+        for (i in 0..10){
+            val product = Product(namaProduct,description,gambar)
+            listProduct.add(product)
+        }
+
+        return listProduct
+    }
+
+
+    private fun setRvProduct (){
+        list.addAll(getProductItem())
+        binding.rvArticle.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        val adapter= ProductAdapter(list)
+        binding.rvArticle.adapter = adapter
     }
 
     private fun customDialog(){
