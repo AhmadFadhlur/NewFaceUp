@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.Button
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.faceup.R
 import com.example.faceup.databinding.FragmentHomePageBinding
 import com.example.faceup.ui.bottomsheet.product.adapter.ProductAdapter
+import com.example.faceup.ui.homepage.adapter.HomeAdapter
 import com.example.faceup.ui.profile.ProfileFragment
 import com.example.faceup.utils.Product
 import com.google.android.material.bottomappbar.BottomAppBar
@@ -40,16 +42,17 @@ class HomePage : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val nama = navArgs.name.toString()
         binding.tvName.text = nama
+        onBackPressed()
         setBottomNav()
-        moveToDetail ()
+        moveToDetail()
+        setRvProduct()
 
     }
-
 
     private fun getProductItem() : ArrayList<Product>{
         val namaProduct = "Acne"
         val description = "this type acne commonly happend to of us because cannon event"
-        val gambar = R.drawable.crew
+        val gambar = R.drawable.acne_example
         val listProduct = ArrayList<Product>()
 
         for (i in 0..10){
@@ -64,7 +67,7 @@ class HomePage : Fragment() {
     private fun setRvProduct (){
         list.addAll(getProductItem())
         binding.rvArticle.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        val adapter= ProductAdapter(list)
+        val adapter= HomeAdapter(list)
         binding.rvArticle.adapter = adapter
     }
 
@@ -94,6 +97,14 @@ class HomePage : Fragment() {
         botAppbar?.visibility = View.VISIBLE
         val floatButton = activity?.findViewById<FloatingActionButton>(R.id.fab_buttonCamera)
         floatButton?.visibility = View.INVISIBLE
+    }
+    private fun onBackPressed() {
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                requireActivity().finish()
+            }
+        })
     }
 
 }

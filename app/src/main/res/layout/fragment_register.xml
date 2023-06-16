@@ -42,6 +42,7 @@
         app:counterEnabled="true"
         app:errorEnabled="true"
         app:helperText="Required*"
+        android:alpha="0"
         app:helperTextTextColor="@color/red_warning"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -63,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="212dp"
-
+        android:alpha="0"
         android:fontFamily="@font/monsier"
         android:text="@string/register"
         android:textColor="@color/black"
@@ -76,7 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-
+        android:alpha="0"
         android:fontFamily="@font/dreamy_romantic"
         android:text="@string/login_desc"
         android:textColor="@color/black_text"
@@ -91,7 +92,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/quesha"
-
+        android:alpha="0"
         android:text="@string/email"
         android:textColor="@color/black_text"
         android:textSize="32sp"
@@ -105,7 +106,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/quesha"
-
+        android:alpha="0"
         android:text="@string/password"
         android:textColor="@color/black_text"
         android:textSize="28sp"
@@ -120,7 +121,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:hint="@string/email_example"
-
+        android:alpha="0"
         app:counterEnabled="true"
         app:errorEnabled="true"
         app:errorIconDrawable="@drawable/ic_error_24"
@@ -141,6 +142,20 @@
             android:textSize="24sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <ProgressBar
+        android:id="@+id/progrebarr_register"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateDrawable="@drawable/progresbarr_custom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="invisible"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutPassword"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -148,7 +163,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-
+        android:alpha="0"
         android:hint="@string/pass_hint"
         app:counterEnabled="true"
         app:endIconMode="password_toggle"
@@ -179,6 +194,7 @@
         android:fontFamily="@font/monsier"
         android:text="@string/login"
         android:textSize="20sp"
+        android:alpha="0"
         app:backgroundTint="@color/sky_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

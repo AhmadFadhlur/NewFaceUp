@@ -8,14 +8,14 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="240dp"
+        android:layout_width="0dp"
         android:layout_height="231dp"
-        android:src="@drawable/faceup_logo"
+        android:src="@drawable/logo_faceup"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.596"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.466" />
+        app:layout_constraintVertical_bias="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

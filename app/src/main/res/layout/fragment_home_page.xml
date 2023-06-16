@@ -13,7 +13,8 @@
         <ImageView
             android:layout_width="33dp"
             android:layout_height="38dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
             android:src="@drawable/notificon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -204,28 +205,30 @@
 
         <TextView
             android:id="@+id/tv_artikel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="120dp"
+            android:layout_height="35dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/codec"
             android:text="Artikel"
-            android:textColor="@color/black"
+            android:gravity="center"
+            android:background="@drawable/rounded_texview"
+            android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cvKonsul" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_article"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/tv_artikel"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:orientation="horizontal"
-                tools:listitem="@layout/list_artikel"
-                />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_article"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_artikel"
+            tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/list_artikel" />
 
 
 

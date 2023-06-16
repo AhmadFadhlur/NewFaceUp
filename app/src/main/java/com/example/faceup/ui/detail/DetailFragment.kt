@@ -202,14 +202,13 @@ class DetailFragment : Fragment() {
         when(flag){
             1 -> {
                 checkCameraPermission()
-                Toast.makeText(requireContext(),"Flag sama dengan $flag", Toast.LENGTH_SHORT).show()
+
             }
             2 ->{
                 startGallery()
-                Toast.makeText(requireContext(),"Flag sama dengan $flag", Toast.LENGTH_SHORT).show()
+
             }
             else -> {
-                Toast.makeText(requireContext(),"Flag sama dengan $flag", Toast.LENGTH_SHORT).show()
             }
         }
 

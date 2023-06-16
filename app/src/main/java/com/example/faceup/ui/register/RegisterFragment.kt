@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import com.example.faceup.R
@@ -55,8 +56,7 @@ class RegisterFragment : Fragment() {
         val passText = ObjectAnimator.ofFloat(binding.tvPassword, View.ALPHA, 1f).setDuration(250)
         val passEd = ObjectAnimator.ofFloat(binding.textInputLayoutPassword, View.ALPHA, 1f).setDuration(250)
         val btnLogin = ObjectAnimator.ofFloat(binding.btnRegister, View.ALPHA, 1f).setDuration(250)
-//        val dontHvAkunText = ObjectAnimator.ofFloat(binding.tvDontHa, View.ALPHA, 1f).setDuration(250)
-//        val regisText = ObjectAnimator.ofFloat(binding.tvRegister, View.ALPHA, 1f).setDuration(250)
+
 
         AnimatorSet().apply {
             playSequentially(register,registerDescription, tvnama,ednama, emailText, emailEd, passText,passEd, btnLogin)
@@ -76,14 +76,14 @@ class RegisterFragment : Fragment() {
                     if (it != null){
                         when(it){
                             is Resource.Error -> {
-
+                                progrebarrRegister.isVisible = true
                             }
                             is Resource.Loading -> {
-
-
+                                progrebarrRegister.isVisible= true
                             }
 
                             is Resource.Success -> {
+                                progrebarrRegister.isVisible = false
                                 val data = it.data
                                 if (data != null){
                                     if (data?.error == true){

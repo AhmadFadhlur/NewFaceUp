@@ -5,19 +5,27 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.faceup.R
 import com.example.faceup.databinding.FragmentProfileBinding
 import com.example.faceup.ui.bottomsheet.product.adapter.ProductAdapter
 import com.example.faceup.utils.Product
+import com.example.faceup.utils.StoreManager
+import com.example.faceup.utils.dataStore
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class ProfileFragment : Fragment() {
 
     private var _bindng : FragmentProfileBinding? = null
     private val binding get() = _bindng!!
     private val list = ArrayList<Product>()
+    private lateinit var storeManager : StoreManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,7 +38,20 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setBottomNav()
-        setRvProduct ()
+        setRvProduct()
+        logout()
+    }
+
+    private fun logout () {
+        binding.tvLoguut.setOnClickListener { btn ->
+            val dataStore : DataStore<Preferences> = requireContext().dataStore
+            storeManager = StoreManager.getInstance(dataStore)
+            GlobalScope.launch {
+                storeManager.deleteToken()
+
+            }
+            btn.findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
+        }
     }
 
 

@@ -12,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doOnTextChanged
@@ -55,6 +56,7 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        onBackPressed()
         emailFocusListener()
         passwordValidation()
         playAnimation()
@@ -126,19 +128,23 @@ class LoginFragment : Fragment() {
                 val dataStore : DataStore<Preferences> = requireContext().dataStore
                 storeManager = StoreManager.getInstance(dataStore)
                 loginViewModel.Postlogin(LoginBody(email,password))
-
+                progrebarrLogin.isVisible = true
                 loginViewModel.login.observe(viewLifecycleOwner){
                     if (it != null){
                         when(it){
+                            is Resource.Loading -> {
+
+                            }
                             is Resource.Error ->{
-                                binding.pbLogin.isVisible = false
+                                progrebarrLogin.isVisible = false
                                 Toast.makeText(context, it.message, Toast.LENGTH_LONG).show()
                             }
                             is Resource.Success -> {
-                                pbLogin.isVisible = true
+                                Log.e("ProgresBar LOADING" , "MASUUUKKKKK SUCCSESS")
+                                progrebarrLogin.isVisible = true
                                 val data = it.data
                                 if (data?.error == true) {
-                                    Toast.makeText(requireContext(), "Login Failed", Toast.LENGTH_LONG).show()
+                                    Toast.makeText(requireContext(), data?.message.toString(), Toast.LENGTH_LONG).show()
                                 }
                                 else{
                                     data?.token?.let {tokenLogin ->
@@ -148,15 +154,14 @@ class LoginFragment : Fragment() {
                                         }
                                     }
                                     Toast.makeText(requireContext(), "Succsess Login", Toast.LENGTH_LONG).show()
-                                    val action  = LoginFragmentDirections.actionLoginFragmentToHomePage(data?.nama.toString())
+                                    val action  = LoginFragmentDirections.actionLoginFragmentToHomePage(data?.nama.toString(),data?.email.toString())
                                     btn.findNavController().navigate(action)
+
                                 }
 
 
                             }
-                            is Resource.Loading -> {
-                                pbLogin.isVisible = true
-                            }
+
                         }
                     }
                 }
@@ -164,12 +169,14 @@ class LoginFragment : Fragment() {
         }
     }
 
-//    private fun setBottomNav(){
-//        val botAppbar = activity?.findViewById<BottomAppBar>(R.id.bottomAppBar)
-//        botAppbar?.visibility = View.GONE
-//        val floatButton = activity?.findViewById<FloatingActionButton>(R.id.fab_buttonCamera)
-//        floatButton?.visibility = View.GONE
-//    }
+    private fun onBackPressed() {
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                requireActivity().finish()
+            }
+        })
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
