@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.loginFragment -> hideBottomNav(true)
                 R.id.splashScreenFragment -> hideBottomNav(true)
                 R.id.profileFragment -> hideBottomNav(true)
+                R.id.detailFragment2 -> hideBottomNav(true)
                 else -> hideBottomNav(false)
             }
         }
