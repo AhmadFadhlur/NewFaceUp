@@ -194,7 +194,7 @@
         android:layout_marginBottom="36dp"
         android:background="@drawable/ripple"
         android:fontFamily="@font/monsier"
-        android:text="@string/login"
+        android:text="@string/regist"
         android:textSize="20sp"
 
         app:backgroundTint="@color/sky_blue"
