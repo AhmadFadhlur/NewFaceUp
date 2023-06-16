@@ -85,6 +85,12 @@
         <action
             android:id="@+id/action_homePage_to_bottomSheetChoosePictureFragment"
             app:destination="@id/bottomSheetChoosePictureFragment" />
+        <action
+            android:id="@+id/action_homePage_to_konsulFragment"
+            app:destination="@id/konsulFragment" />
+        <action
+            android:id="@+id/action_homePage_to_klinikFragment"
+            app:destination="@id/klinikFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -132,4 +138,14 @@
             android:id="@+id/action_bottomSheetChoosePictureFragment_to_detailFragment2"
             app:destination="@id/detailFragment2" />
     </dialog>
+    <fragment
+        android:id="@+id/klinikFragment"
+        android:name="com.example.faceup.ui.futurework.KlinikFragment"
+        android:label="fragment_klinik"
+        tools:layout="@layout/fragment_klinik" />
+    <fragment
+        android:id="@+id/konsulFragment"
+        android:name="com.example.faceup.ui.futurework.KonsulFragment"
+        android:label="fragment_konsul"
+        tools:layout="@layout/fragment_konsul" />
 </navigation>
