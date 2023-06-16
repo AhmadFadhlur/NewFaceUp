@@ -92,7 +92,6 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setBottomNav()
         showBottomSheet()
         chosePicture()
         showLoading(true)
@@ -264,11 +263,11 @@ class DetailFragment : Fragment() {
         }
     }
 
-    private fun setBottomNav(){
-        val botAppbar = activity?.findViewById<BottomAppBar>(R.id.bottomAppBar)
-        botAppbar?.visibility = View.GONE
-        val floatButton = activity?.findViewById<FloatingActionButton>(R.id.fab_buttonCamera)
-        floatButton?.visibility = View.GONE
-    }
+//    private fun setBottomNav(){
+//        val botAppbar = activity?.findViewById<BottomAppBar>(R.id.bottomAppBar)
+//        botAppbar?.visibility = View.GONE
+//        val floatButton = activity?.findViewById<FloatingActionButton>(R.id.fab_buttonCamera)
+//        floatButton?.visibility = View.GONE
+//    }
 
 }

@@ -91,6 +91,9 @@
         <action
             android:id="@+id/action_homePage_to_klinikFragment"
             app:destination="@id/klinikFragment" />
+        <action
+            android:id="@+id/action_homePage_to_detailArticleFragment"
+            app:destination="@id/detailArticleFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -148,4 +151,9 @@
         android:name="com.example.faceup.ui.futurework.KonsulFragment"
         android:label="fragment_konsul"
         tools:layout="@layout/fragment_konsul" />
+    <fragment
+        android:id="@+id/detailArticleFragment"
+        android:name="com.example.faceup.ui.DetailArticleFragment"
+        android:label="fragment_detail_article"
+        tools:layout="@layout/fragment_detail_article" />
 </navigation>
