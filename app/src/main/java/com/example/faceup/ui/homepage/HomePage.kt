@@ -7,17 +7,17 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.Button
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.faceup.R
 import com.example.faceup.databinding.FragmentHomePageBinding
+import com.example.faceup.ui.bottomsheet.product.adapter.ProductAdapter
 import com.example.faceup.ui.homepage.adapter.HomeAdapter
 import com.example.faceup.ui.profile.ProfileFragment
-import com.example.faceup.utils.Article
-import com.example.faceup.utils.DataArticle
+import com.example.faceup.utils.Product
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -29,9 +29,7 @@ class HomePage : Fragment() {
     private var _binding : FragmentHomePageBinding? = null
     private val binding get() = _binding!!
     private val navArgs : HomePageArgs by navArgs()
-    lateinit var rvArtikel : RecyclerView
-    private val list : ArrayList<Article> = arrayListOf()
-
+    private val list = ArrayList<Product>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,16 +42,42 @@ class HomePage : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val nama = navArgs.name.toString()
         binding.tvName.text = nama
-        moveToDetail ()
-        setRv()
+        onBackPressed()
+        moveToDetail()
+        setRvProduct()
+        futureWork()
 
+    }
+
+    private fun getProductItem() : ArrayList<Product>{
+        val namaProduct = "Acne"
+        val description = "this type acne commonly happend to of us because cannon event"
+        val gambar = R.drawable.acne_example
+        val listProduct = ArrayList<Product>()
+
+        for (i in 0..10){
+            val product = Product(namaProduct,description,gambar)
+            listProduct.add(product)
+        }
+
+        return listProduct
+    }
+
+
+    private fun setRvProduct (){
+        list.addAll(getProductItem())
+        binding.rvArticle.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        val adapter= HomeAdapter(list)
+        binding.rvArticle.adapter = adapter
+    }
+
+    private fun futureWork(){
         binding.cvKlinik.setOnClickListener() {
             findNavController().navigate(R.id.action_homePage_to_klinikFragment)
         }
         binding.cvKonsul.setOnClickListener(){
             findNavController().navigate(R.id.action_homePage_to_konsulFragment)
         }
-
     }
 
     private fun customDialog(){
@@ -76,16 +100,13 @@ class HomePage : Fragment() {
         }
     }
 
+    private fun onBackPressed() {
 
-    private fun setRv(){
-        rvArtikel = binding.rvArticle
-        rvArtikel.setHasFixedSize(true)
-        list.addAll(DataArticle.listArtikel)
-        rvArtikel.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        val listArtikel= HomeAdapter(list)
-        rvArtikel.adapter = listArtikel
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                requireActivity().finish()
+            }
+        })
     }
-
-
 
 }

@@ -91,9 +91,11 @@
         <action
             android:id="@+id/action_homePage_to_klinikFragment"
             app:destination="@id/klinikFragment" />
-        <action
-            android:id="@+id/action_homePage_to_detailArticleFragment"
-            app:destination="@id/detailArticleFragment" />
+        <argument
+            android:name="email"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="email" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -104,7 +106,21 @@
         android:id="@+id/profileFragment"
         android:name="com.example.faceup.ui.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="name" />
+        <argument
+            android:name="email"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="email" />
+    </fragment>
     <fragment
         android:id="@+id/cameraFragment"
         android:name="com.example.faceup.ui.camera_sementara.CameraFragment"
@@ -151,9 +167,4 @@
         android:name="com.example.faceup.ui.futurework.KonsulFragment"
         android:label="fragment_konsul"
         tools:layout="@layout/fragment_konsul" />
-    <fragment
-        android:id="@+id/detailArticleFragment"
-        android:name="com.example.faceup.ui.DetailArticleFragment"
-        android:label="fragment_detail_article"
-        tools:layout="@layout/fragment_detail_article" />
 </navigation>

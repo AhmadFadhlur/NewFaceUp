@@ -11,7 +11,7 @@
         android:id="@+id/img_register"
         android:layout_width="320dp"
         android:layout_height="180dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="22dp"
         android:src="@drawable/logo_register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,13 +22,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="18dp"
+
         android:fontFamily="@font/quesha"
         android:text="name"
-        android:alpha="0"
         android:textColor="@color/black_text"
         android:textSize="32sp"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutName"
-        app:layout_constraintStart_toStartOf="parent" />
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_loginDescription" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutName"
@@ -36,17 +38,18 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+
         android:layout_marginEnd="32dp"
         android:hint="name"
         app:counterEnabled="true"
         app:errorEnabled="true"
         app:helperText="Required*"
+
         app:helperTextTextColor="@color/red_warning"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_loginDescription"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name1"
         app:startIconDrawable="@drawable/ic_person_24">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -62,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="212dp"
+        android:layout_marginTop="180dp"
 
         android:fontFamily="@font/monsier"
         android:text="@string/register"
@@ -141,6 +144,20 @@
             android:textSize="24sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <ProgressBar
+        android:id="@+id/progrebarr_register"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateDrawable="@drawable/progresbarr_custom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="invisible"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutPassword"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -179,6 +196,7 @@
         android:fontFamily="@font/monsier"
         android:text="@string/login"
         android:textSize="20sp"
+
         app:backgroundTint="@color/sky_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

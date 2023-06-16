@@ -37,19 +37,20 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.registerFragment -> hideBottomNav(true)
                 R.id.onBoardingFragment -> hideBottomNav(true)
                 R.id.loginFragment -> hideBottomNav(true)
                 R.id.splashScreenFragment -> hideBottomNav(true)
+                R.id.profileFragment -> hideBottomNav(true)
                 else -> hideBottomNav(false)
             }
         }
 
-        setCamera()
-    }
 
+    }
     private fun hideBottomNav(hide: Boolean) {
         if (hide) {
             binding.navView.visibility = View.GONE
@@ -57,45 +58,5 @@ class MainActivity : AppCompatActivity() {
             binding.navView.visibility = View.VISIBLE
         }
     }
-
-    private fun setCamera(){
-//        binding.fabButtonCamera.setOnClickListener {
-//
-//            MaterialAlertDialogBuilder(this)
-//                .setTitle("Warning")
-//                .setMessage("Please Take Close Picture")
-//                .setNeutralButton("Cancel") { dialog, which ->
-//                    // Respond to neutral button press
-//                }
-//                .setNegativeButton("decline") { dialog, which ->
-//                    // Respond to negative button press
-//                }
-//                .setPositiveButton("Accept") { dialog, which ->
-//                    Toast.makeText(this, "Fragment", Toast.LENGTH_LONG).show()
-////                    val fragmentManager = supportFragmentManager
-////                    val fragment = DetailFragment() // Ganti dengan Fragment yang ingin ditampilkan
-////                    val fragmentTransaction = fragmentManager.beginTransaction()
-////                    fragmentTransaction.replace(R.id.fragmentContainer, fragment) // Ganti R.id.fragmentContainer dengan ID kontainer di layout tempat Fragment akan ditempatkan
-////                    fragmentTransaction.commit()
-////                findNavController().navigate(R.id.detailFragment2)
-//                }
-//                .show()
-//        }
-
-    }
-
-    private fun customDialog(){
-        val dialog = Dialog(this)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.setContentView(R.layout.custom_dialog)
-
-        val btnOk = dialog.findViewById<Button>(R.id.buttonOke)
-        btnOk.setOnClickListener{
-            dialog.dismiss()
-        }
-        dialog.show()
-    }
-
 
 }
