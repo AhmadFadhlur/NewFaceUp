@@ -66,7 +66,7 @@ class HomePage : Fragment() {
         val botAppbar = activity?.findViewById<BottomAppBar>(R.id.bottomAppBar)
         botAppbar?.visibility = View.VISIBLE
         val floatButton = activity?.findViewById<FloatingActionButton>(R.id.fab_buttonCamera)
-        floatButton?.visibility = View.VISIBLE
+        floatButton?.visibility = View.INVISIBLE
     }
 
 }
